@@ -21,8 +21,8 @@ var education = {
     {
       "school": "University of Central Florida",
       "location": "Orlando, Florida",
-      "degree": "Bachelors of Arts",
-      "majors": "Interdisciplinary Studies",
+      "degree": "Bachelor of Arts",
+      "majors": ['Interdisciplinary Studies'],
       "dates": "2005 - 2009",
       "url": "http://www.ucf.edu"
     }],
@@ -44,14 +44,20 @@ var work = {
         "title": "Assistant Store Manager",
         "dates": "October - December 2015",
         "location": "Zephyr Cover, NV",
-        "description": "Long string describing job skills and tasks. Long string describing job skills and tasks. Long string describing job skills and tasks. Long string describing job skills and tasks. Long string describing job skills and tasks. Long string describing job skills and tasks. Long string describing job skills and tasks. Long string describing job skills and tasks."
+        "description": "Long string describing job skills and tasks. Long string describing" +
+        "job skills and tasks. Long string describing job skills and tasks. Long string describing" +
+        "job skills and tasks. Long string describing job skills and tasks. Long string describing" +
+        "job skills and tasks. Long string describing job skills and tasks."
     },
     {
         "employer": "Raleys",
         "title": "Night Crew Clerk",
         "dates": "May 2012 - October 2015",
         "location": "South Lake Tahoe, CA",
-        "description": "Long string describing job skills and tasks. Long string describing job skills and tasks. Long string describing job skills and tasks. Long string describing job skills and tasks. Long string describing job skills and tasks. Long string describing job skills and tasks. Long string describing job skills and tasks. Long string describing job skills and tasks."
+        "description": "Long string describing job skills and tasks. Long string describing " +
+        "job skills and tasks. Long string describing job skills and tasks. Long string describing " +
+        "job skills and tasks. Long string describing job skills and tasks. Long string describing " +
+        "job skills and tasks. Long string describing job skills and tasks."
     }
   ]
 };
@@ -62,46 +68,49 @@ var projects = {
     {
       "title": "Interactive Resume",
       "dates": "July 2016",
-      "description": "Long string describing project and tasks. Long string describing project and tasks. Long string describing project and tasks. Long string describing project and tasks. Long string describing project and tasks. Long string describing project and tasks. Long string describing project and tasks. Long string describing project and tasks.",
-      "images": [
-        "http://www.example.com/img.jpg",
-        "http://www.example.com/img2.jpg"]
+      "description": "Long string describing project and tasks. Long string describing project and tasks. " +
+      "Long string describing project and tasks. Long string describing project and tasks. Long string " +
+      "describing project and tasks. Long string describing project and tasks. Long string describing " +
+      "project and tasks. Long string describing project and tasks.",
+      "images": ["http://placekitten.com/200/300"]
     },
     {
       "title": "Classic Arcade Game Clone",
       "dates": "July 2016",
-      "description": "Long string describing project and tasks. Long string describing project and tasks. Long string describing project and tasks. Long string describing project and tasks. Long string describing project and tasks. Long string describing project and tasks. Long string describing project and tasks. Long string describing project and tasks.",
-      "images": [
-        "http://www.example.com/img.jpg",
-        "http://www.example.com/img2.jpg"]
+      "description": "Long string describing project and tasks. Long string describing project and tasks. " +
+      "Long string describing project and tasks. Long string describing project and tasks. Long string" +
+      "describing project and tasks. Long string describing project and tasks. Long string describing" +
+      "project and tasks. Long string describing project and tasks.",
+      "images": ["http://placekitten.com/200/300"]
     },
     {
       "title": " Website Optimization",
       "dates": "July 2016",
-      "description": "Long string describing project and tasks. Long string describing project and tasks. Long string describing project and tasks. Long string describing project and tasks. Long string describing project and tasks. Long string describing project and tasks. Long string describing project and tasks. Long string describing project and tasks.",
-      "images": [
-        "http://www.example.com/img.jpg",
-        "http://www.example.com/img2.jpg"]
+      "description": "Long string describing project and tasks. Long string describing project and tasks." +
+      "Long string describing project and tasks. Long string describing project and tasks. Long string " +
+      "describing project and tasks. Long string describing project and tasks. Long string describing" +
+      "project and tasks. Long string describing project and tasks.",
+      "images": ["http://placekitten.com/200/300"]
     },
     {
       "title": "Neighborhood Map",
       "dates": "July 2016",
-      "description": "Long string describing project and tasks. Long string describing project and tasks. Long string describing project and tasks. Long string describing project and tasks. Long string describing project and tasks. Long string describing project and tasks. Long string describing project and tasks. Long string describing project and tasks.",
-      "images": [
-        "http://www.example.com/img.jpg",
-        "http://www.example.com/img2.jpg"]
+      "description": "Long string describing project and tasks. Long string describing project and tasks. " +
+      "Long string describing project and tasks. Long string describing project and tasks. Long string " +
+      "describing project and tasks. Long string describing project and tasks. Long string describing " +
+      "project and tasks. Long string describing project and tasks.",
+      "images": ["http://placekitten.com/200/300"]
   }
-]
-};
+]};
 
 bio.display = function() {
 	$("#header").prepend(HTMLheaderRole.replace("%data%", bio.role));
 	$("#header").prepend(HTMLheaderName.replace("%data%", bio.name));
-	$("#topContacts").append(HTMLmobile.replace("%data%", bio.contacts.mobile));
-	$("#topContacts").append(HTMLemail.replace("%data%", bio.contacts.email));
-	$("#topContacts").append(HTMLtwitter.replace("%data%", bio.contacts.twitter));
-	$("#topContacts").append(HTMLgithub.replace("%data%", bio.contacts.github));
-	$("#topContacts").append(HTMLlocation.replace("%data%", bio.contacts.location));
+	$("#topContacts, #footerContacts").append(HTMLmobile.replace("%data%", bio.contacts.mobile));
+	$("#topContacts, #footerContacts").append(HTMLemail.replace("%data%", bio.contacts.email));
+	$("#topContacts, #footerContacts").append(HTMLtwitter.replace("%data%", bio.contacts.twitter));
+	$("#topContacts, #footerContacts").append(HTMLgithub.replace("%data%", bio.contacts.github));
+	$("#topContacts, #footerContacts").append(HTMLlocation.replace("%data%", bio.contacts.location));
   $("#header").append(HTMLbioPic.replace("%data%", bio.biopic));
   $("#header").append(HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage));
 
@@ -114,73 +123,55 @@ bio.display = function() {
 			$("#skills").append(formattedSkill);
 		}
 	}
-	$("#footerContacts").append(HTMLmobile.replace("%data%", bio.contacts.mobile));
-	$("#footerContacts").append(HTMLemail.replace("%data%", bio.contacts.email));
-	$("#footerContacts").append(HTMLtwitter.replace("%data%", bio.contacts.twitter));
-	$("#footerContacts").append(HTMLgithub.replace("%data%", bio.contacts.github));
-	$("#footerContacts").append(HTMLlocation.replace("%data%", bio.contacts.location));
 };
 
 work.display = function () {
-  for (job in work.jobs)  {
+  work.jobs.forEach(function(job){
     $("#workExperience").append(HTMLworkStart);
-
-    var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
-    $(".work-entry:last").append(formattedEmployer);
-    var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
-    $(".work-entry:last").append(formattedTitle);
-    var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
-    $(".work-entry:last").append(formattedDates);
-    var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
-    $(".work-entry:last").append(formattedDescription);
-    var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
-    $(".work-entry:last").append(formattedLocation);
-  }
+    var formattedEmployer = HTMLworkEmployer.replace("%data%",job.employer);
+    var formattedTitle = HTMLworkTitle.replace("%data%", job.title);
+    var formattedDates = HTMLworkDates.replace("%data%", job.dates);
+    var formattedDescription = HTMLworkDescription.replace("%data%", job.description);
+    var formattedLocation = HTMLworkLocation.replace("%data%", job.location);
+    $(".work-entry:last").append(formattedEmployer + formattedTitle, formattedDates, formattedLocation, formattedDescription);
+  });
 };
 
 projects.display = function() {
-  for (project in projects.projects) {
+  projects.projects.forEach(function(project){
     $("#projects").append(HTMLprojectStart);
-
-    var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
-    $(".project-entry:last").append(formattedTitle);
-
-    var formattedDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
-    $(".project-entry:last").append(formattedDates);
-
-    var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description)
-    $(".project-entry:last").append(formattedDescription);
-
-    if (projects.projects[project].images.length > 0) {
-      for (image in projects.projects[project].images) {
-        var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
+      var formattedpTitle = HTMLprojectTitle.replace("%data%", project.title);
+      var formattedpDates = HTMLprojectDates.replace("%data%", project.dates);
+      var formattedpDescription = HTMLprojectDescription.replace("%data%", project.description);
+      $(".project-entry:last").append(formattedpTitle, formattedpDates, formattedpDescription);
+  project.images.forEach(function(pImg){
+      var formattedImage = HTMLprojectImage.replace("%data%", pImg);
       $(".project-entry:last").append(formattedImage);
-      }
-    }
-  }
+    });
+  });
 };
 
 education.display = function() {
  education.schools.forEach(function(school){
     $("#education").append(HTMLschoolStart);
-        var formattedURL = HTMLschoolName.replace("#", school.url);
-        var formattedSchool = HTMLschoolName.replace("%data%", school.school);
+        var formattedSchool = HTMLschoolName.replace("%data%", school.school).replace("#", school.url);
         var formattedDegree = HTMLschoolDegree.replace("%data%", school.degree);
         var formattedDate = HTMLschoolDates.replace("%data%", school.dates);
         var formattedLocation = HTMLschoolLocation.replace("%data%", school.location);
         var formattedMajor = HTMLschoolMajor.replace("%data%", school.majors);
-    $(".education-entry:last").append(formattedSchool, formattedDate + formattedDegree, formattedLocation, formattedMajor);
-    });
+    $(".education-entry:last").append(formattedSchool + formattedDegree, formattedLocation, formattedDate, formattedMajor);
+  });
     $("#education").append(HTMLonlineClasses);
-  education.onlineCourses.forEach(function(online){
+  education.onlineCourses.forEach(function(onlineC){
     $("#education").append(HTMLschoolStart);
-        var formattedTitle = HTMLonlineTitle.replace("%data%", online.title);
-        var formattedURL = HTMLonlineURL.replace("%data%", online.url);
-        var formattedCourse = HTMLonlineSchool.replace("%data%", online.school);
-        var formattedonlineDate = HTMLonlineDates.replace("%data%", online.dates);
+        var formattedTitle = HTMLonlineTitle.replace("%data%", onlineC.title).replace("#", onlineC.url);
+        var formattedURL = HTMLonlineURL.replace("%data%", onlineC.url).replace("#", onlineC.url);
+        var formattedCourse = HTMLonlineSchool.replace("%data%", onlineC.school);
+        var formattedonlineDate = HTMLonlineDates.replace("%data%", onlineC.dates);
     $(".education-entry:last").append(formattedTitle + formattedCourse, formattedonlineDate, formattedURL);
-        });
+  });
 };
+
 // internationalize Button
 function inName(name) {
   name = name.trim().split(" ");
